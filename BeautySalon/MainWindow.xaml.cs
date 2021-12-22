@@ -32,6 +32,7 @@ namespace BeautySalon
             context.Client.Add(client);
             ClientWindow clientWindow = new ClientWindow(context, client);
             clientWindow.ShowDialog();
+            clientsDataGrid.ItemsSource = context.Client.ToList();
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
