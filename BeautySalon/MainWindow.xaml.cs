@@ -115,5 +115,12 @@ namespace BeautySalon
             phoneTextBox.Text = string.Empty;
             genderComboBox.SelectedItem = null;
         }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button editButton = sender as Button;
+            var client = editButton.DataContext as Client;
+            ClientWindow clientWindow = new ClientWindow(context, client);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -30,12 +31,13 @@ namespace BeautySalon
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckData())
+            if(CheckData())
             {
                 client.GenderCode = CheckGender();
                 client.Birthday = (DateTime)birthdayDatePicker.SelectedDate;
                 client.RegistrationDate = DateTime.Now;
                 context.SaveChanges();
+                this.Close();
             }
         }
 

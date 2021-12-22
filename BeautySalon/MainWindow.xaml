@@ -69,6 +69,15 @@
                                     Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Пол"
                                     Binding="{Binding GenderCode}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="editButton"
+                                    Content="Редактировать"
+                                    Click="editButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
