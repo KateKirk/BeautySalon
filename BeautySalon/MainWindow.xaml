@@ -5,8 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeautySalon"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Салон красоты Мордочка" 
+        Height="800" Width="1600"
+        FontFamily="Tahoma"
+        FontSize="18"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <Button x:Name="addButton"
+                    Content="Добавить"
+                    Margin="5"
+                    Width="100"
+                    Click="addButton_Click"/>
+            <Button x:Name="deleteButton"
+                    Content="Удалить"
+                    Margin="5"
+                    Width="100"
+                    Click="deleteButton_Click"/>
+            <Label Content="ФИО"/>
+            <TextBox x:Name="fullNameTextBox" Width="150"
+                     TextChanged="fullNameTextBox_TextChanged"/>
+            <Label Content="Номер"/>
+            <TextBox x:Name="phoneTextBox" Width="150"
+                     TextChanged="phoneTextBox_TextChanged"/>
+            <Label Content="Email"/>
+            <TextBox x:Name="emailTextBox" Width="150"
+                     TextChanged="emailTextBox_TextChanged"/>
+            <Label Content="Пол"/>
+            <ComboBox x:Name="genderComboBox" 
+                      DisplayMemberPath="Name"
+                      SelectionChanged="genderComboBox_SelectionChanged"
+                      Width="150"/>
+            <Button x:Name="resetButton"
+                    Content="Сбросить"
+                    Click="resetButton_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="clientsDataGrid" 
+                  Grid.Row="1"
+                  ColumnWidth="*"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Фамилия"
+                                    Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя"
+                                    Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Отчество"
+                                    Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Дата рождения"
+                                    Binding="{Binding Birthday}"/>
+                <DataGridTextColumn Header="Дата регистрации"
+                                    Binding="{Binding RegistrationDate}"/>
+                <DataGridTextColumn Header="Телефон"
+                                    Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Email"
+                                    Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Пол"
+                                    Binding="{Binding GenderCode}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
