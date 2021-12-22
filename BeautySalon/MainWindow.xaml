@@ -43,7 +43,9 @@
                       Width="150"/>
             <Button x:Name="resetButton"
                     Content="Сбросить"
-                    Click="resetButton_Click"/>
+                    Click="resetButton_Click"
+                    Margin="5"
+                    Width="150"/>
         </StackPanel>
         <DataGrid x:Name="clientsDataGrid" 
                   Grid.Row="1"

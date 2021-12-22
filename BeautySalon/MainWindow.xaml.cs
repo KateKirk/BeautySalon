@@ -121,6 +121,7 @@ namespace BeautySalon
             Button editButton = sender as Button;
             var client = editButton.DataContext as Client;
             ClientWindow clientWindow = new ClientWindow(context, client);
+            clientWindow.ShowDialog();
         }
     }
 }
