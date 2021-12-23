@@ -38,6 +38,7 @@ namespace BeautySalon
                 client.GenderCode = CheckGender();
                 client.Birthday = (DateTime)birthdayDatePicker.SelectedDate;
                 client.RegistrationDate = DateTime.Now;
+                client.PhotoPath = pathPhotoClient;
                 context.SaveChanges();
                 this.Close();
             }
