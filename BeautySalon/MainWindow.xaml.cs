@@ -77,13 +77,17 @@ namespace BeautySalon
         private void SearchAndSortingTable()
         {
             var currentGender = (Gender)genderComboBox.SelectedItem;
-            string searchFullName = fullNameTextBox.Text;
+            string searchFirstName = firstNameTextBox.Text;
+            string searchSecondName = secondNameTextBox.Text;
+            string searchedPatronymic = patronymicTextBox.Text;
             string searchEmail = emailTextBox.Text;
             string searchPhone = phoneTextBox.Text;
             List<Client> clients = context.Client.ToList();
             if (genderComboBox.SelectedItem == null)
             {
-                clients = clients.Where(x => x.LastName.ToLower().Contains(searchFullName.ToLower())).ToList();
+                clients = clients.Where(x => x.LastName.ToLower().Contains(searchSecondName.ToLower())).ToList();
+                clients = clients.Where(x => x.FirstName.ToLower().Contains(searchFirstName.ToLower())).ToList();
+                clients = clients.Where(x => x.Patronymic.ToLower().Contains(searchedPatronymic.ToLower())).ToList();
                 clients = clients.Where(x => x.Email.ToLower().Contains(searchEmail.ToLower())).ToList();
                 clients = clients.Where(x => x.Phone.ToLower().Contains(searchPhone.ToLower())).ToList();
                 clientsDataGrid.ItemsSource = clients;
@@ -93,18 +97,12 @@ namespace BeautySalon
                 clients = clients.Where(x => x.GenderCode == currentGender.Code).ToList();
                 clients = clients.Where(x => x.Email.ToLower().Contains(searchEmail.ToLower())).ToList();
                 clients = clients.Where(x => x.Phone.ToLower().Contains(searchPhone.ToLower())).ToList();
-                clients = clients.Where(x => x.LastName.ToLower().Contains(searchFullName.ToLower())).ToList();
-                clients = clients.Where(x => x.FirstName.ToLower().Contains(searchFullName.ToLower())).ToList();
-                clients = clients.Where(x => x.Patronymic.ToLower().Contains(searchFullName.ToLower())).ToList();
+                clients = clients.Where(x => x.LastName.ToLower().Contains(searchSecondName.ToLower())).ToList();
+                clients = clients.Where(x => x.FirstName.ToLower().Contains(searchFirstName.ToLower())).ToList();
+                clients = clients.Where(x => x.Patronymic.ToLower().Contains(searchedPatronymic.ToLower())).ToList();
                 clientsDataGrid.ItemsSource = clients;
             }
         }
-        //private void SearchBirtday()
-        //{
-        //    DateTime dateTime = DateTime.Now;
-        //    List<Client> clients = context.Client.ToList();
-        //    Надо спросить         поиск по месяцу
-        //}
 
         private void genderComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -119,7 +117,9 @@ namespace BeautySalon
 
         private void ClearValues()
         {
-            fullNameTextBox.Text = string.Empty;
+            firstNameTextBox.Text = string.Empty;
+            secondNameTextBox.Text = string.Empty;
+            patronymicTextBox.Text = string.Empty;
             emailTextBox.Text = string.Empty;
             phoneTextBox.Text = string.Empty;
             genderComboBox.SelectedItem = null;
@@ -133,11 +133,6 @@ namespace BeautySalon
             clientWindow.ShowDialog();
         }
 
-        private void searchByBirthdayButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void showVisitsButton_Click(object sender, RoutedEventArgs e)
         {
             Button showButton = sender as Button;
@@ -148,9 +143,26 @@ namespace BeautySalon
 
             if (clientServices.Count == 0)
                 MessageBox.Show("У данного клиента посещений нет", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-            else { ClientsVisitsWindiow visitsWindiow = new ClientsVisitsWindiow(context, clientId);
+            else { ClientsVisitsWindiow visitsWindiow = new ClientsVisitsWindiow(clientServices);
             visitsWindiow.ShowDialog(); }
                
+        }
+
+        private void secondNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchAndSortingTable();
+        }
+
+        private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchAndSortingTable();
+
+        }
+
+        private void patronymicTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchAndSortingTable();
+
         }
     }
 }

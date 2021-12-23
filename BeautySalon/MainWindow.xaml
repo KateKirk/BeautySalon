@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BeautySalon"
         mc:Ignorable="d"
         Title="Салон красоты «Мордочка»" 
-        Height="800" Width="1600"
+        Height="800" Width="1605"
         FontFamily="Tahoma"
         FontSize="18"
         Background="{StaticResource BackgroundColor}"
@@ -36,9 +36,15 @@
                     Width="100"
                     Click="deleteButton_Click"
                     Background="{StaticResource AdditionalColor}"/>
-            <Label Content="ФИО"/>
-            <TextBox x:Name="fullNameTextBox" Width="150"
-                     TextChanged="fullNameTextBox_TextChanged"/>
+            <Label Content="Фамилия"/>
+            <TextBox x:Name="secondNameTextBox" Width="150"
+                     TextChanged="secondNameTextBox_TextChanged"/>
+            <Label Content="Имя"/>
+            <TextBox x:Name="firstNameTextBox" Width="150"
+                     TextChanged="firstNameTextBox_TextChanged"/>
+            <Label Content="Отчество"/>
+            <TextBox x:Name="patronymicTextBox" Width="150"
+                     TextChanged="patronymicTextBox_TextChanged"/>
             <Label Content="Номер"/>
             <TextBox x:Name="phoneTextBox" Width="150"
                      TextChanged="phoneTextBox_TextChanged"/>
@@ -54,14 +60,9 @@
                     Content="Сбросить"
                     Click="resetButton_Click"
                     Margin="5"
-                    Width="150"
+                    Width="90"
                     Background="{StaticResource AdditionalColor}"/>
-            <Button x:Name="searchByBirthdayButton"
-                    Content="День рождения в текущем месяце"
-                    Margin="5"
-                    Width="300"
-                    Click="searchByBirthdayButton_Click"
-                    Background="{StaticResource AdditionalColor}"/>
+           
         </StackPanel>
         <DataGrid x:Name="clientsDataGrid" 
                   Grid.Row="2"

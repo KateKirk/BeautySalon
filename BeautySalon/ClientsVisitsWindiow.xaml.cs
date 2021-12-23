@@ -19,14 +19,13 @@ namespace BeautySalon
     /// </summary>
     public partial class ClientsVisitsWindiow : Window
     {
-        BeautySalonEntities context;
-        Client client;
-        public ClientsVisitsWindiow(BeautySalonEntities context, int clientId)
+        //BeautySalonEntities context;
+        //Client client;
+        public ClientsVisitsWindiow(List<ClientService> clientServices)
         {
             InitializeComponent();
-            this.context = context;
-           // this.client = ;
-            visitsDataGrid.ItemsSource = context.ClientService.ToList();
+           
+            visitsDataGrid.ItemsSource = clientServices;
         }
     }
 }
