@@ -94,15 +94,17 @@ namespace BeautySalon
                 clients = clients.Where(x => x.Email.ToLower().Contains(searchEmail.ToLower())).ToList();
                 clients = clients.Where(x => x.Phone.ToLower().Contains(searchPhone.ToLower())).ToList();
                 clients = clients.Where(x => x.LastName.ToLower().Contains(searchFullName.ToLower())).ToList();
+                clients = clients.Where(x => x.FirstName.ToLower().Contains(searchFullName.ToLower())).ToList();
+                clients = clients.Where(x => x.Patronymic.ToLower().Contains(searchFullName.ToLower())).ToList();
                 clientsDataGrid.ItemsSource = clients;
             }
         }
-        private void SearchBirtday()
-        {
-            DateTime dateTime = DateTime.Now;
-            List<Client> clients = context.Client.ToList();
-                    
-        }
+        //private void SearchBirtday()
+        //{
+        //    DateTime dateTime = DateTime.Now;
+        //    List<Client> clients = context.Client.ToList();
+        //    Надо спросить         поиск по месяцу
+        //}
 
         private void genderComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -129,6 +131,19 @@ namespace BeautySalon
             var client = editButton.DataContext as Client;
             ClientWindow clientWindow = new ClientWindow(context, client);
             clientWindow.ShowDialog();
+        }
+
+        private void searchByBirthdayButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void showVisitsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button showButton = sender as Button;
+            var client = showButton.DataContext as Client;
+            ClientsVisitsWindiow visitsWindiow = new ClientsVisitsWindiow(context, client);
+            visitsWindiow.ShowDialog();
         }
     }
 }

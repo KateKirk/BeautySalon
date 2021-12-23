@@ -45,6 +45,8 @@
             <TextBlock Text="Email"/>
             <TextBox x:Name="emailTextBox"
                      Text="{Binding Email}"/>
+            <TextBlock Text="Фото профиля" Height="100"/>
+            <Image Height="100" />
         </UniformGrid>
         <Button x:Name="saveButton"
                 Content="Сохранить"

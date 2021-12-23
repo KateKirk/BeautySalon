@@ -28,12 +28,14 @@
                     Content="Добавить"
                     Margin="5"
                     Width="100"
-                    Click="addButton_Click"/>
+                    Click="addButton_Click"
+                    Background="{StaticResource AdditionalColor}"/>
             <Button x:Name="deleteButton"
                     Content="Удалить"
                     Margin="5"
                     Width="100"
-                    Click="deleteButton_Click"/>
+                    Click="deleteButton_Click"
+                    Background="{StaticResource AdditionalColor}"/>
             <Label Content="ФИО"/>
             <TextBox x:Name="fullNameTextBox" Width="150"
                      TextChanged="fullNameTextBox_TextChanged"/>
@@ -52,7 +54,14 @@
                     Content="Сбросить"
                     Click="resetButton_Click"
                     Margin="5"
-                    Width="150"/>
+                    Width="150"
+                    Background="{StaticResource AdditionalColor}"/>
+            <Button x:Name="searchByBirthdayButton"
+                    Content="День рождения в текущем месяце"
+                    Margin="5"
+                    Width="300"
+                    Click="searchByBirthdayButton_Click"
+                    Background="{StaticResource AdditionalColor}"/>
         </StackPanel>
         <DataGrid x:Name="clientsDataGrid" 
                   Grid.Row="2"
@@ -69,7 +78,7 @@
                 <DataGridTextColumn Header="Отчество"
                                     Binding="{Binding Patronymic}"/>
                 <DataGridTextColumn Header="Дата рождения"
-                                    Binding="{Binding Birthday}"/>
+                                    Binding="{Binding Birthday}" />
                 <DataGridTextColumn Header="Дата регистрации"
                                     Binding="{Binding RegistrationDate}"/>
                 <DataGridTextColumn Header="Телефон"
@@ -83,7 +92,18 @@
                         <DataTemplate>
                             <Button x:Name="editButton"
                                     Content="Редактировать"
-                                    Click="editButton_Click"/>
+                                    Click="editButton_Click"
+                                    Background="{StaticResource AdditionalColor}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="showVisitsButton"
+                                    Content="Посещения"
+                                    Click="showVisitsButton_Click"
+                                    Background="{StaticResource AdditionalColor}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

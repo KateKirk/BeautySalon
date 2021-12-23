@@ -1,0 +1,30 @@
+﻿<Window x:Class="BeautySalon.ClientsVisitsWindiow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySalon"
+        mc:Ignorable="d"
+        Title="ClientsVisitsWindiow" Height="450" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <Image Source="Resources/beauty_logo.ico" Margin="5"/>
+            <TextBlock Text="Салон красоты «Мордочка»" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="38" Foreground="{StaticResource AdditionalColor}"/>
+        </StackPanel>
+        <DataGrid x:Name="visitsDataGrid"
+                  Grid.Row="1"
+                  ColumnWidth="*"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата посещения"/>
+                <DataGridTextColumn Header="Услуга"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

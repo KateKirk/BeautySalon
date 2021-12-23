@@ -79,6 +79,9 @@
     <Compile Include="ClientService.cs">
       <DependentUpon>BeautySalonModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClientsVisitsWindiow.xaml.cs">
+      <DependentUpon>ClientsVisitsWindiow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
     <Compile Include="Tag.cs">
       <DependentUpon>BeautySalonModel.tt</DependentUpon>
     </Compile>
+    <Page Include="ClientsVisitsWindiow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
