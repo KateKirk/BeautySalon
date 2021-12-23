@@ -47,6 +47,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -180,6 +181,13 @@
       <DependentUpon>BeautySalonModel.edmx</DependentUpon>
       <LastGenOutput>BeautySalonModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\beauty_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <None Include="Resources\Icon1.ico" />
+    <Resource Include="Resources\beauty_logo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="beauty_logo.ico" />
   </ItemGroup>
   <ItemGroup>

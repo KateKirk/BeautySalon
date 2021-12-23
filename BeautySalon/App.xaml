@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:BeautySalon"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="BackgroundColor" Color="#e1e4ff"/>
+        <SolidColorBrush x:Key="AdditionalColor" Color="#ff4a6d"/>
     </Application.Resources>
 </Application>

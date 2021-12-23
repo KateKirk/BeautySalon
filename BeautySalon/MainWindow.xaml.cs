@@ -97,6 +97,12 @@ namespace BeautySalon
                 clientsDataGrid.ItemsSource = clients;
             }
         }
+        private void SearchBirtday()
+        {
+            DateTime dateTime = DateTime.Now;
+            List<Client> clients = context.Client.ToList();
+                    
+        }
 
         private void genderComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

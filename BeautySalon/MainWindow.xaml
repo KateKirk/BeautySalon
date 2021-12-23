@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeautySalon"
         mc:Ignorable="d"
-        Title="Салон красоты Мордочка" 
+        Title="Салон красоты «Мордочка»" 
         Height="800" Width="1600"
         FontFamily="Tahoma"
         FontSize="18"
+        Background="{StaticResource BackgroundColor}"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0">
+            <Image Source="Resources/beauty_logo.ico" Margin="5"/>
+            <TextBlock Text="Салон красоты «Мордочка»" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{StaticResource AdditionalColor}" FontSize="38" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1">
             <Button x:Name="addButton"
                     Content="Добавить"
                     Margin="5"
@@ -48,7 +55,7 @@
                     Width="150"/>
         </StackPanel>
         <DataGrid x:Name="clientsDataGrid" 
-                  Grid.Row="1"
+                  Grid.Row="2"
                   ColumnWidth="*"
                   CanUserAddRows="False"
                   AutoGenerateColumns="False">
