@@ -141,9 +141,16 @@ namespace BeautySalon
         private void showVisitsButton_Click(object sender, RoutedEventArgs e)
         {
             Button showButton = sender as Button;
-            var client = showButton.DataContext as Client;
-            ClientsVisitsWindiow visitsWindiow = new ClientsVisitsWindiow(context, client);
-            visitsWindiow.ShowDialog();
+            var selectedRow = (Client)clientsDataGrid.SelectedItem;
+            int clientId = selectedRow.ID;
+            List<ClientService> clientServices = context.ClientService.ToList();
+            clientServices = clientServices.Where(x => x.ClientID == clientId).ToList();
+
+            if (clientServices.Count == 0)
+                MessageBox.Show("У данного клиента посещений нет", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            else { ClientsVisitsWindiow visitsWindiow = new ClientsVisitsWindiow(context, clientId);
+            visitsWindiow.ShowDialog(); }
+               
         }
     }
 }

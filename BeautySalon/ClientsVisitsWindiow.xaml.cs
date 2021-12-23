@@ -21,11 +21,12 @@ namespace BeautySalon
     {
         BeautySalonEntities context;
         Client client;
-        public ClientsVisitsWindiow(BeautySalonEntities context, Client client)
+        public ClientsVisitsWindiow(BeautySalonEntities context, int clientId)
         {
             InitializeComponent();
             this.context = context;
-            this.client = client;
+           // this.client = ;
+            visitsDataGrid.ItemsSource = context.ClientService.ToList();
         }
     }
 }

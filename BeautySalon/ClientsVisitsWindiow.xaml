@@ -22,8 +22,8 @@
                   CanUserAddRows="False"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Дата посещения"/>
-                <DataGridTextColumn Header="Услуга"/>
+                <DataGridTextColumn Header="Дата посещения" Binding="{Binding StartTime}"/>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Title}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

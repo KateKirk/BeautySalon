@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeautySalon"
         mc:Ignorable="d"
-        Title="Салон красоты «Мордочка»" Height="500" Width="600"
+        Title="Салон красоты «Мордочка»" Height="600" Width="800"
         FontFamily="Tahoma"
         FontSize="18"
         Background="{StaticResource BackgroundColor}"
@@ -14,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"
@@ -45,14 +46,23 @@
             <TextBlock Text="Email"/>
             <TextBox x:Name="emailTextBox"
                      Text="{Binding Email}"/>
+                   </UniformGrid >
+        <UniformGrid Grid.Row="2" Columns="2">
             <TextBlock Text="Фото профиля" Height="100"/>
-            <Image Height="100" />
+            <Image x:Name="clientPhoto" Height="100" />
         </UniformGrid>
-        <Button x:Name="saveButton"
+        <UniformGrid Grid.Row="3" Columns="2">
+            <Button x:Name="saveButton"
                 Content="Сохранить"
-                Grid.Row="2"
                 Click="saveButton_Click"
                 Background="{StaticResource AdditionalColor}"
                 />
+            <Button x:Name="addImgButton"
+                Content="Добавить фото"
+                Click="addImgButton_Click"
+                Background="{StaticResource AdditionalColor}"
+                />
+        </UniformGrid>
+        
     </Grid>
 </Window>

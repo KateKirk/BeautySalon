@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace BeautySalon
     {
         BeautySalonEntities context;
         Client client;
+        string pathPhotoClient = string.Empty;
         public ClientWindow(BeautySalonEntities context, Client client)
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace BeautySalon
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            if(CheckData())
+            if (CheckData())
             {
                 client.GenderCode = CheckGender();
                 client.Birthday = (DateTime)birthdayDatePicker.SelectedDate;
@@ -95,5 +97,17 @@ namespace BeautySalon
             }
             return false;
         }
+
+        private void addImgButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Файлы изображений (*.bmp, *.jpg, *.png)|*.bmp;*.jpg;*.png";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                clientPhoto.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+                pathPhotoClient = System.IO.Path.GetFileName(openFileDialog.FileName);
+            }
+        }
     }
+
 }
